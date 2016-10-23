@@ -18,30 +18,20 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui.Models
 
         public void AddEquity(decimal price, decimal quantity)
         {
-            var newEquity = new Equity()
-            {
-                Name = "Equity" + ++_equityCounter,
-                Price = price,
-                Quantity = quantity
-            };
+            var equityName = nameof(Equity) + ++_equityCounter;
+            var newEquity = new Equity(equityName, price, quantity);
             Stocks.Add(newEquity);
             ResetStockWeights();
             UpdateTotalProperties();
-            UpdateEquityProperties();
         }
 
         public void AddBond(decimal price, decimal quantity)
         {
-            var newBond = new Bond()
-            {
-                Name = "Bond" + ++_bondCounter,
-                Price = price,
-                Quantity = quantity
-            };
+            var bondName = nameof(Bond) + ++_bondCounter;
+            var newBond = new Bond(bondName, price, quantity);
             Stocks.Add(newBond);
             ResetStockWeights();
             UpdateTotalProperties();
-            UpdateBondProperies();
         }
 
         private void ResetStockWeights()
@@ -49,7 +39,10 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui.Models
             var totalMarketValue = TotalMarketValue;
             foreach (var stock in Stocks)
             {
-                stock.StockWeight = stock.MarketValue / totalMarketValue * 100;
+                if (totalMarketValue > 0)
+                    stock.StockWeight = stock.MarketValue/totalMarketValue;
+                else
+                    stock.StockWeight = 0;
             }
         }
 
@@ -58,17 +51,9 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui.Models
             OnPropertyChanged(nameof(TotalNumber));
             OnPropertyChanged(nameof(TotalMarketValue));
             OnPropertyChanged(nameof(TotalStockWeight));
-        }
-
-        private void UpdateEquityProperties()
-        {
             OnPropertyChanged(nameof(TotalNumberOfEquities));
             OnPropertyChanged(nameof(TotalMarketValueOfEquities));
             OnPropertyChanged(nameof(TotalStockWeightOfEquities));
-        }
-
-        private void UpdateBondProperies()
-        {
             OnPropertyChanged(nameof(TotalNumberOfBonds));
             OnPropertyChanged(nameof(TotalMarketValueOfBonds));
             OnPropertyChanged(nameof(TotalStockWeightOfBonds));

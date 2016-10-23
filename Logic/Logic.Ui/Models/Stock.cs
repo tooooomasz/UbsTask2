@@ -2,6 +2,15 @@
 {
     public abstract class Stock : BaseModel
     {
+        protected Stock(string name, decimal price, decimal quantity)
+        {
+            Name = name;
+            Price = price;
+            Quantity = quantity;
+        }
+
+        public abstract string StockType { get; }
+
         private string _name;
 
         public string Name
@@ -12,7 +21,7 @@
                 if (value == _name)
                     return;
                 _name = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Name));
             }
         }
 
@@ -26,7 +35,10 @@
                 if (value == _price)
                     return;
                 _price = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Price));
+                OnPropertyChanged(nameof(MarketValue));
+                OnPropertyChanged(nameof(TransactionCost));
+                OnPropertyChanged(nameof(IsNotTolerated));
             }
         }
 
@@ -43,7 +55,10 @@
                 if (value == _quantity)
                     return;
                 _quantity = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Quantity));
+                OnPropertyChanged(nameof(MarketValue));
+                OnPropertyChanged(nameof(TransactionCost));
+                OnPropertyChanged(nameof(IsNotTolerated));
             }
         }
 
@@ -57,7 +72,7 @@
                 if (value == _stockWeight)
                     return;
                 _stockWeight = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(StockWeight));
             }
         }
 
@@ -67,6 +82,6 @@
 
         public decimal MarketValue => Price * Quantity;
 
-        public bool IsTolerated => MarketValue < 0 || TransactionCost > Tolerance;
+        public bool IsNotTolerated => MarketValue < 0 || TransactionCost > Tolerance;
     }
 }

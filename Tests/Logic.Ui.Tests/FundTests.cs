@@ -37,16 +37,16 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui.Tests
             var fund = new Fund();
             fund.AddBond(20, 10);
             var bond1 = fund.Stocks.LastOrDefault();
-            Assert.AreEqual(bond1.StockWeight, 100);
+            Assert.AreEqual(bond1.StockWeight, 1);
             fund.AddBond(30, 10);
             var bond2 = fund.Stocks.LastOrDefault();
-            Assert.AreEqual(bond1.StockWeight, 40);
-            Assert.AreEqual(bond2.StockWeight, 60);
+            Assert.AreEqual(bond1.StockWeight, 0.4);
+            Assert.AreEqual(bond2.StockWeight, 0.60);
             fund.AddEquity(50, 10);
             var equity1 = fund.Stocks.LastOrDefault();
-            Assert.AreEqual(bond1.StockWeight, 20);
-            Assert.AreEqual(bond2.StockWeight, 30);
-            Assert.AreEqual(equity1.StockWeight, 50);
+            Assert.AreEqual(bond1.StockWeight, 0.20);
+            Assert.AreEqual(bond2.StockWeight, 0.30);
+            Assert.AreEqual(equity1.StockWeight, 0.50);
         }
 
         [Test]
@@ -130,11 +130,11 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui.Tests
             var fund = new Fund();
             Assert.AreEqual(fund.TotalStockWeight, 0);
             fund.AddBond(20, 10);
-            Assert.AreEqual(fund.TotalStockWeight, 100);
+            Assert.AreEqual(fund.TotalStockWeight, 1);
             fund.AddBond(30, 10);
-            Assert.AreEqual(fund.TotalStockWeight, 100);
+            Assert.AreEqual(fund.TotalStockWeight, 1);
             fund.AddEquity(50, 10);
-            Assert.AreEqual(fund.TotalStockWeight, 100);
+            Assert.AreEqual(fund.TotalStockWeight, 1);
         }
 
         [Test]
@@ -147,7 +147,7 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui.Tests
             fund.AddBond(30, 10);
             Assert.AreEqual(fund.TotalStockWeightOfEquities, 0);
             fund.AddEquity(50, 10);
-            Assert.AreEqual(fund.TotalStockWeightOfEquities, 50);
+            Assert.AreEqual(fund.TotalStockWeightOfEquities, 0.50);
         }
 
         [Test]
@@ -156,11 +156,11 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui.Tests
             var fund = new Fund();
             Assert.AreEqual(fund.TotalStockWeightOfBonds, 0);
             fund.AddBond(20, 10);
-            Assert.AreEqual(fund.TotalStockWeightOfBonds, 100);
+            Assert.AreEqual(fund.TotalStockWeightOfBonds, 1);
             fund.AddBond(30, 10);
-            Assert.AreEqual(fund.TotalStockWeightOfBonds, 100);
+            Assert.AreEqual(fund.TotalStockWeightOfBonds, 1);
             fund.AddEquity(50, 10);
-            Assert.AreEqual(fund.TotalStockWeightOfBonds, 50);
+            Assert.AreEqual(fund.TotalStockWeightOfBonds, 0.50);
         }
     }
 }

@@ -3,15 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:tomaszbaginski.UbsTask2.Ui.Desktop"
+        xmlns:desktop="clr-namespace:tomaszbaginski.UbsTask2.Ui.Desktop"
         mc:Ignorable="d"
-        Title="My Fund" Height="350" Width="525"
+        Title="My Fund" MinHeight="400" MinWidth="750" Height="600" Width="1000"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
-    <Grid>
-        <!--<DataGrid ItemsSource="{Binding Fund.Stocks}">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn></DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>-->
-    </Grid>
+    <DockPanel LastChildFill="True">
+        <desktop:NewStockForm DockPanel.Dock="Top" />
+        <desktop:StocksSummary DockPanel.Dock="Right"/>
+        <desktop:StocksView />
+    </DockPanel>
 </Window>
