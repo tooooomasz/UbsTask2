@@ -8,9 +8,9 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui
 
     public class MainViewModel : ViewModelBase, IMainViewModel
     {
-        public MainViewModel()
+        public MainViewModel(IFund fund)
         {
-            Fund = new Fund();
+            Fund = fund;
             AddNewBondCommand = new RelayCommand(() => Fund.AddBond(NewStockPrice, NewStockQuantity));
             AddNewEquityCommand = new RelayCommand(() => Fund.AddEquity(NewStockPrice, NewStockQuantity));
         }
