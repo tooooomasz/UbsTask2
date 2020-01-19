@@ -1,6 +1,6 @@
 ﻿namespace tomaszbaginski.UbsTask2.Logic.Ui.Models
 {
-    public abstract class Stock : BaseModel
+    public abstract class Stock : BaseModel, IStock
     {
         protected Stock(string name, decimal price, decimal quantity)
         {

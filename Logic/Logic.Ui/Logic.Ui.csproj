@@ -65,11 +65,14 @@
     <Compile Include="..\..\.shared\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="IMainViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Bond.cs" />
     <Compile Include="Models\Equity.cs" />
     <Compile Include="Models\Fund.cs" />
+    <Compile Include="Models\IFund.cs" />
+    <Compile Include="Models\IStock.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelLocator.cs" />

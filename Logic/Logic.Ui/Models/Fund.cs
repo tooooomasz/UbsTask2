@@ -1,9 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace tomaszbaginski.UbsTask2.Logic.Ui.Models
 {
-    public class Fund : BaseModel
+    public class Fund : BaseModel, IFund
     {
         private int _equityCounter;
 
@@ -14,7 +15,7 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui.Models
             Stocks = new ObservableCollection<Stock>();
         }
 
-        public ObservableCollection<Stock> Stocks { get; }
+        public IList<Stock> Stocks { get; }
 
         public void AddEquity(decimal price, decimal quantity)
         {

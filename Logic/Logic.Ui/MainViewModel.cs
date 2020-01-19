@@ -1,10 +1,12 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using System.Windows.Input;
 using tomaszbaginski.UbsTask2.Logic.Ui.Models;
 
 namespace tomaszbaginski.UbsTask2.Logic.Ui
 {
-    public class MainViewModel : ViewModelBase
+
+    public class MainViewModel : ViewModelBase, IMainViewModel
     {
         public MainViewModel()
         {
@@ -13,14 +15,14 @@ namespace tomaszbaginski.UbsTask2.Logic.Ui
             AddNewEquityCommand = new RelayCommand(() => Fund.AddEquity(NewStockPrice, NewStockQuantity));
         }
 
-        public Fund Fund { get; }
+        public IFund Fund { get; }
 
         public decimal NewStockPrice { get; set; }
 
         public decimal NewStockQuantity { get; set; }
 
-        public RelayCommand AddNewEquityCommand { get; }
+        public ICommand AddNewEquityCommand { get; }
 
-        public RelayCommand AddNewBondCommand { get; }
+        public ICommand AddNewBondCommand { get; }
     }
 }
