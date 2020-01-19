@@ -111,6 +111,9 @@
     <Compile Include="..\..\.shared\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Installers.cs" />
+    <Compile Include="IShell.cs" />
+    <Compile Include="Shell.cs" />
     <Compile Include="StocksSummary.xaml.cs">
       <DependentUpon>StocksSummary.xaml</DependentUpon>
     </Compile>

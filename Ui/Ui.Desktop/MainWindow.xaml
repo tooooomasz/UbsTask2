@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:desktop="clr-namespace:tomaszbaginski.UbsTask2.Ui.Desktop"
         mc:Ignorable="d"
-        Title="My Fund" MinHeight="400" MinWidth="750" Height="600" Width="1000"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
+        Title="My Fund" MinHeight="400" MinWidth="750" Height="600" Width="1000">
     <DockPanel LastChildFill="True">
         <desktop:NewStockForm DockPanel.Dock="Top" />
         <desktop:StocksSummary DockPanel.Dock="Right"/>
